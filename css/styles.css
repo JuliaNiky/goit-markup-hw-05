@@ -40,19 +40,14 @@ li {
     margin: 0;
 }
 
-:focus,
+/*:focus,
 :active {
     outline: none;
-}
+}*/
 
 a {
     text-decoration: none;
     color: inherit;
-}
-
-a:focus,
-a:active {
-    outline: none;
 }
 
 a,
@@ -152,9 +147,6 @@ body {
 
 /* Header */
 .header {
-    padding-top: 24px;
-    padding-bottom: 25px;
-    min-height: 80px;
     border-bottom: 1px solid var(--border-light);
 }
 
@@ -184,10 +176,24 @@ a.logo {
 }
 
 .nav-item {
+    position: relative;
+    padding: 24px 0;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: 0.02em;
     color: var(--primary-title-color);
+}
+
+.active-link::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
 }
 
 .active .nav-item.current a {
@@ -325,6 +331,26 @@ section.advantages {
 /* advantages end */
 
 /* services */
+.services-item {
+    position: relative;
+}
+.services-wrap {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 27px 0;
+    width: 100%;
+    background: rgba(47, 48, 58, 0.8);
+}
+
+.services-title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-dark-background);
+}
 
 /* services end */
 
@@ -571,8 +597,13 @@ button.tab:focus {
     border-left: 1px solid #eee;
 }
 
+.project-items:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 .project-wrap {
-    padding: 20px 0;
+    padding: 20px 24px;
 }
 
 .project-title {
