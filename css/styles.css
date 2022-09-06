@@ -53,7 +53,6 @@ a {
 a,
 a:visited {
     text-decoration: none;
-    color: inherit;
 }
 
 a:hover {
@@ -413,6 +412,7 @@ section.advantages {
     width: 44px;
     height: 44px;
     border-radius: 50%;
+    color: var(--icon-color);
     transition-duration: fill var(--transition-duration);
     transition-timing-function: fill var(--transition-timing-function);
 }
@@ -430,12 +430,11 @@ section.advantages {
 .team-svg:hover,
 .team-svg:focus {
     background-color: var(--accent-color);
-    fill: var(--default-background);
+    color: var(--default-background);
 }
 
-.team-icon:hover,
-.team-icon:focus {
-    fill: var(--default-background);
+.team-icon {
+    fill: currentColor;
 }
 
 /*team end*/
