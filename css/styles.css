@@ -620,15 +620,69 @@ button.tab:focus {
 
 .project-items:hover {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-                0px 4px 4px rgba(0, 0, 0, 0.06),
-                1px 4px 6px rgba(0, 0, 0, 0.16);
+        0px 4px 4px rgba(0, 0, 0, 0.06),
+        1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--transition-timing-function);
+}
+
+.wrap-content {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.wrap-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0px 50px;
+}
+
+.wrap-text:hover {
+    content: '';
+    opacity: 1;
+    height: 100%;
+    transform: translateY(0);
+    transition: transform 250ms ease;
+
+}
+
+.project-text {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    max-width: 370px;
+    height: 100%;
+    padding: 63px 24px;
+    font-size: 18px;
+    line-height: 1.56;
+    color: rgb(255, 255, 255);
+    background-color: rgba(33, 150, 243, 0.9);
+
+    transform: translateY(101%);
+    transition: transform 250ms ease;
+}
+
+.project-text:hover {
+    transform: translateY(0);
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--transition-timing-function);
+}
+
+
+.project-items:hover .project-text,
+.project-items:focus .project-text {
+    opacity: 1;
+    transform: translateY(0);
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
 .project-wrap {
-    position: relative;
-    overflow: hidden;
     padding: 20px 24px;
 }
 
@@ -646,50 +700,51 @@ button.tab:focus {
     line-height: 1.9;
     color: var(--primary-text-color);
 }
+/*Portfolio end*/
 
-.wrap-text {
-    position: absolute;
-    left: 0;
-    top: 0;
+/*modal icon*/
+
+.backdrop {
+    position: fixed;
     width: 100%;
     height: 100%;
-    padding: 63px 24px;
-    background-color: var(--accent-color);
-
-    transform: translateY(100%);
-    transition: transform 250ms ease;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
-.wrap-text::before {
-    content: '';
+.modal {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+    background: var(--default-background);
+}
+
+.backdrop.is-hidden {
+    visibility: hidden;
     opacity: 0;
+    pointer-events: none;
 }
 
-.project-text {
+.button-close {
     position: absolute;
-    margin: 0;
-    padding: 63px 24px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: 63px 24px;
-    background-color: var(--accent-color);
-    
-    transform: translateY(100%);
-    transition: transform 250ms ease;
+    width: 30px;
+    height: 30px;
+    right: 8px;
+    top: 8px;
+    border-radius: 50%;
+    background-color: var(--default-background);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.project-items:hover .wrap-text,
-.project-items:focus .wrap-text {
-    opacity: 1;
-    transform: translateY(0);
-    transition-duration: var(--animation-duration);
-    transition-timing-function: var(--transition-timing-function);
-}
-
-.project-text {
-    font-size: 18px;
-    line-height: 1.56;
-    color: var(--text-dark-background);
+.icon-close {
+    width: 18px;
+    height: 18px;
+    fill: var(--dark-color);
 }
