@@ -186,8 +186,7 @@ a.logo {
 }
 
 .nav-link, .contacts-item{
-    transition-duration: color var(--transition-duration);
-    transition-timing-function: color var(--transition-timing-function);
+    transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .nav-link-active:hover,
@@ -209,6 +208,9 @@ a.logo {
     height: 4px;
     background-color: var(--accent-color);
     border-radius: 2px;
+}
+.nav-link-active {
+    color: var(--accent-color);
 }
 
 .nav-contacts {
@@ -233,10 +235,8 @@ a.logo {
     align-items: center;
     gap: 10px;
     fill: var(--primary-text-color);
-    transition-duration: fill var(--transition-duration),
-                         color var(--transition-duration);
-    transition-timing-function: fill var(--transition-timing-function),
-                                color var(--transition-timing-function);
+    transition: fill var(--transition-duration) var(--transition-timing-function),
+                color var(--transition-duration) var(--transition-timing-function);
 }
 
 .contacts-icon:hover,
@@ -421,10 +421,8 @@ section.advantages {
     width: 20px;
     height: 20px;
     fill: var(--icon-color);
-    transition-duration: background-color var(--transition-duration),
-                         fill var(--transition-duration);
-    transition-timing-function: background-color var(--transition-timing-function),
-                                fill var(--transition-timing-function);
+    transition: background-color var(--transition-duration) var(--transition-timing-function),
+                fill var(--transition-duration) var(--transition-timing-function);
 }
 
 .team-svg:hover,
@@ -452,18 +450,16 @@ section.advantages {
     height: 92px;
     border: 1px solid var(--icon-color);
     border-radius: 4px;
-    transition-duration: fill var(--transition-duration);
-        transition-timing-function: fill var(--transition-timing-function);
+    transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
 .clients-icon {
     width: 106px;
     height: 60px;
     fill: var(--icon-color);
-    transition-duration: fill var(--transition-duration),
-                         border var(--transition-duration);
-    transition-timing-function: fill var(--transition-timing-function),
-                                border var(--transition-timing-function);
+    transition: fill var(--transition-duration) var(--transition-timing-function),
+                border var(--transition-duration) var(--transition-timing-function);
+    
 }
 
 .clients-svg:hover{
@@ -550,8 +546,7 @@ section.advantages {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    transition-duration: background-color var(--transition-duration);
-    transition-timing-function: background-color var(--transition-timing-function);
+    transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .link-svg:hover,
@@ -598,12 +593,9 @@ button.tab {
     text-align: center;
     color: var(--primary-title-color);
     border-radius: 4px;
-    transition-duration: color var(--transition-duration),
-                         background-color var(--transition-duration),
-                         box-shadow var(--transition-duration);
-    transition-timing-function: color var(--transition-timing-function),
-                                background-color var(--transition-timing-function),
-                                box-shadow var(--transition-timing-function);
+    transition: color var(--transition-duration) var(--transition-timing-function),
+                background-color var(--transition-duration) var(--transition-timing-function),
+                box-shadow var(--transition-duration) var(--transition-timing-function);
 }
 
 button.tab:hover,
@@ -630,8 +622,7 @@ button.tab:focus {
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
     border-left: 1px solid #eee;
-    transition-duration: box-shadow var(--transition-duration), transform var(--transition-duration);
-    transition-timing-function: box-shadow var(--transition-timing-function), transform var(--transition-duration);
+    transition: box-shadow var(--transition-duration), transform var(--transition-duration);
 }
 
 .project-items:hover {
