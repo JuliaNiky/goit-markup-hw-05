@@ -101,7 +101,7 @@ border #ECECEC
 */
 
 :root {
-    --animation-duration: 250ms;
+    --transition-duration: 250ms;
     --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --accent-color: #2196F3;
     --primary-title-color: #212121;
@@ -193,7 +193,7 @@ a.logo {
 .nav-link:focus,
 .contacts-item:focus {
     color: var(--accent-color);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -237,7 +237,7 @@ a.logo {
 .contacts-icon:focus {
     fill: var(--accent-color);
     color: var(--accent-color);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -420,7 +420,7 @@ section.advantages {
 .team-svg:focus {
     background-color: var(--accent-color);
     fill: var(--default-background);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -457,14 +457,14 @@ section.advantages {
 
 .clients-svg:hover{
     border: 1px solid var(--accent-color);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
 .clients-svg:hover .clients-icon,
 .clients-svg:focus .clients-icon {
     fill: var(--accent-color);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -502,7 +502,7 @@ section.advantages {
 .address-item:hover,
 .address-item:focus {
     color: var(--accent-color);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -551,7 +551,7 @@ section.advantages {
 .link-svg:hover,
 .link-svg:focus {
     background-color: var(--accent-color);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -596,7 +596,7 @@ button.tab:focus {
     background-color: var(--accent-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -622,7 +622,7 @@ button.tab:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
         0px 4px 4px rgba(0, 0, 0, 0.06),
         1px 4px 6px rgba(0, 0, 0, 0.16);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -646,7 +646,7 @@ button.tab:focus {
     opacity: 1;
     height: 100%;
     transform: translateY(0);
-    transition: transform 250ms ease;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 
 }
 
@@ -664,12 +664,12 @@ button.tab:focus {
     background-color: rgba(33, 150, 243, 0.9);
 
     transform: translateY(101%);
-    transition: transform 250ms ease;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 }
 
 .project-text:hover {
     transform: translateY(0);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -678,7 +678,7 @@ button.tab:focus {
 .project-items:focus .project-text {
     opacity: 1;
     transform: translateY(0);
-    transition-duration: var(--animation-duration);
+    transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
 
@@ -703,6 +703,11 @@ button.tab:focus {
 /*Portfolio end*/
 
 /*modal icon*/
+.backdrop.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
 
 .backdrop {
     position: fixed;
@@ -711,22 +716,25 @@ button.tab:focus {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition-duration) var(--transition-timing-function),
+                visibility var(--transition-duration) var(--transition-timing-function);
 }
 
 .modal {
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     width: 528px;
     height: 581px;
     background: var(--default-background);
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 }
 
-.backdrop.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.6);
 }
 
 .button-close {
